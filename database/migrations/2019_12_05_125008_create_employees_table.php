@@ -21,7 +21,7 @@ class CreateEmployeesTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->timestamps();
-            $table->foreign('id_jobs')->references('id_jobs')->on('jobs');
+            $table->foreign('id_jobs')->references('id_jobs')->on('jobs')->onDelete('cascade');
         });
     }
 
