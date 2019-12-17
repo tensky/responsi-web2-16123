@@ -15,8 +15,8 @@ class EmployeesController extends Controller
      */
     public function index()
     {
-        $da = Employees::all();
-        return view('')->with('', $ta);
+        $datas = Employees::all();
+        return view('employees/index', compact('datas'));
     }
 
     /**
@@ -27,7 +27,7 @@ class EmployeesController extends Controller
     public function create()
     {
         $da = Jobs::all();
-        return view('')->with('', $ta);
+        //return view('')->with('', $ta);
     }
 
     /**

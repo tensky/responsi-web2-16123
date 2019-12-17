@@ -1,5 +1,6 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,8 +16,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::('/jobs', 'JobsController');
-// Route::('/employees', 'EmployeesController');
+ Route::resource('/jobs', 'JobsController');
+ Route::resource('/employees', 'EmployeesController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/info', 'InfoController@info')->name('info');
