@@ -19,14 +19,14 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item @yield('jobs')">
-                        <a class="nav-link" href="">Jobs</a>
+                        <a class="nav-link" href="/jobs/">Jobs</a>
                     </li>
                     <li class="nav-item @yield('employees')">
-                        <a class="nav-link" href="">Employees</a>
+                        <a class="nav-link" href="/employees/">Employees</a>
                     </li>
                     <li class="nav-item @yield('info')">
                         <!-- isikan link INFO anda disini -->
-                        <a class="nav-link" href="">Info</a>
+                        <a class="nav-link" href="/info/">Info</a>
                     </li>
                 </ul>
                 @if (Route::has('login'))

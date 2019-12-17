@@ -7,13 +7,13 @@
     <label>Jobs</label>
     <select name="job" class="form-control">
       @foreach($jobs as $data)
-        <option value="{{$data->id_jobs}}">{{$data->name}}</option>
+        <option value="{{$data->id_jobs}}">{{$data->nama}}</option>
       @endforeach
     </select>
   </div>
   <div class="form-group">
     <label>Nama Pegawai</label>
-    <input type="text" name="nama" class="form-control" placeholder="...">
+    <input type="text" name="name" class="form-control" placeholder="...">
   </div>
   <div class="form-group">
     <label>E-Mail</label>

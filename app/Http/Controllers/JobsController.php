@@ -95,4 +95,6 @@ class JobsController extends Controller
         Jobs::where('id_jobs',$id)->delete();
         return redirect()->route('jobs.index');
     }
+
+    
 }

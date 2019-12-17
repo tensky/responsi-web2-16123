@@ -20,7 +20,7 @@
         <tr>
             <th scope="row">{{$data->id_employees}}</th>
             <td>{{$data->jobs->nama}}</td>
-            <td>{{$data->nama}}</td>
+            <td>{{$data->name}}</td>
             <td>{{$data->email}}</td>
             <td>{{$data->phone}}</td>
             <td>{{$data->address}}</td>

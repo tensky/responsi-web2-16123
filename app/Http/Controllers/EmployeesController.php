@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Employees;
 use App\Jobs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EmployeesController extends Controller
 {
@@ -26,8 +27,8 @@ class EmployeesController extends Controller
      */
     public function create()
     {
-        $da = Jobs::all();
-        //return view('')->with('', $ta);
+        $jobs = DB::table('jobs')->get();
+        return view('employees/create')->with('jobs', $jobs);
     }
 
     /**
@@ -40,20 +41,19 @@ class EmployeesController extends Controller
     {
         $request->validate([
             'job'=>'required',
-            'nama'=>'required',
+            'name'=>'required',
             'email'=>'required',
             'kontak'=>'required',
             'alamat'=>'required',
         ]);
-        $employees = new Employees([
-            'id_jobs' => $request->input('job'),
-            'name' => $request->input('nama'),
-            'email' => $request->input('email'),
-            'phone' => $request->input('kontak'),
-            'address' => $request->input('alamat')
-        ]);
+        $employees = new Employees();
+        $employees->id_jobs = $request->input('job');
+        $employees->name = $request->input('name');
+        $employees->email = $request->input('email');
+        $employees->phone = $request->input('kontak');
+        $employees->address = $request->input('alamat');
         $employees->save();
-        return redirect('employe');
+        return redirect()->route('employees.index');
     }
 
     /**
@@ -75,9 +75,9 @@ class EmployeesController extends Controller
      */
     public function edit($id)
     {
-        $jobs = Jobs::all();
+        $jobs = DB::table('jobs')->get();
         $data = Employees::where('id_employees', '=', $id)->firstOrFail();
-        return view('')->with('employees', $data)->with('jobs', $jobs);
+        return view('employees/edit')->with('employee', $data)->with('jobs', $jobs);
     }
 
     /**
@@ -104,7 +104,7 @@ class EmployeesController extends Controller
             'address' => $request->input('alamat')
         ];
         Employees::where('id_employees',$id)->update($data);
-        return redirect('employ');
+        return redirect()->route('employees.index');
     }
 
     /**
@@ -116,6 +116,6 @@ class EmployeesController extends Controller
     public function destroy($id)
     {
         Employees::where('id_employees',$id)->delete();
-        return redirect('employe');
+        return redirect()->route('employees.index');
     }
 }

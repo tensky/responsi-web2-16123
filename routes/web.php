@@ -13,12 +13,18 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if(Auth::user()){
+        return redirect('/jobs');
+    }else{
+        return view('welcome');
+    }
 });
-
- Route::resource('/jobs', 'JobsController');
- Route::resource('/employees', 'EmployeesController');
+Route::group(['middleware' => ['auth']], function(){
+    Route::resource('/jobs', 'JobsController');
+    Route::resource('/employees', 'EmployeesController');
+    Route::get('/info', 'InfoController@info')->name('info');
+});
+ 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/info', 'InfoController@info')->name('info');
