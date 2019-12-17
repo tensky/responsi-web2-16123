@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <!-- Isikan dengan username akun github anda -->
+                    Tensky
                 </div>
 
                 <div class="links">
