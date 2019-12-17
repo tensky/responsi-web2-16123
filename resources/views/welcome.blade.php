@@ -86,7 +86,7 @@
 
                 <div class="links">
                     <!-- ganti url dengan link github anda -->
-                    <!-- <a href="#">GitHub</a> -->
+                    <a href="https://github.com/Tensky/responsi-web2-16123">GitHub</a>
                 </div>
             </div>
         </div>
